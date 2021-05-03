@@ -4,4 +4,4 @@
 
 #### Jira link
 
-![Jira](https://mamayu.atlassian.net/jira/software/projects/MAMAYU/pages)
+![Jira](https://mamayu.atlassian.net/jira/software/projects/MAMAYU)
