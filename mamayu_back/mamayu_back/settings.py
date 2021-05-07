@@ -13,6 +13,7 @@ https://docs.djangoproject.com/en/3.2/ref/settings/
 import os
 
 from pathlib import Path
+from decouple import config
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
@@ -22,12 +23,12 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 # See https://docs.djangoproject.com/en/3.2/howto/deployment/checklist/
 
 # SECURITY WARNING: keep the secret key used in production secret!
-SECRET_KEY = 'django-insecure-lf_)7a!hz*@z8^m6!4ug7umll86i^54919(#epuu!85hf4=^^4'
+SECRET_KEY = config('SECRET_KEY')
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = True
+DEBUG = config('DEBUG', default=False, cast=bool)
 
-ALLOWED_HOSTS = ['127.0.0.1', 'localhost']
+ALLOWED_HOSTS = config('ALLOWED_HOSTS').split(" ")
 
 
 # Application definition
@@ -77,12 +78,12 @@ WSGI_APPLICATION = 'mamayu_back.wsgi.application'
 
 DATABASES = {
     'default': {
-        'ENGINE': 'django.db.backends.postgresql_psycopg2',
-        'NAME': 'mamayu',
-        'USER': 'mamayu',
-        'PASSWORD': 'mamayu',
-        'HOST': 'localhost',
-        'PORT': '',
+        "ENGINE": config('SQL_ENGINE', 'django.db.backends.sqlite3'),
+        "NAME": config('SQL_DATABASE', os.path.join(BASE_DIR, 'db.sqlite3')),
+        "USER": config('SQL_USER', 'user'),
+        "PASSWORD": config('SQL_PASSWORD', 'password'),
+        "HOST": config('SQL_HOST', 'localhost'),
+        "PORT": config('SQL_PORT', '5432'),
     }
 }
 
@@ -124,7 +125,6 @@ USE_TZ = True
 # https://docs.djangoproject.com/en/3.2/howto/static-files/
 
 STATIC_URL = '/static/'
-
 STATIC_ROOT = os.path.join(BASE_DIR, 'static/')
 
 # Default primary key field type
