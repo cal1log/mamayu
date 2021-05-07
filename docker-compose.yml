@@ -1,0 +1,26 @@
+version: "3"
+
+services:
+  db:
+    image: postgres:12.6-alpine
+    container_name: mamayu_db     
+    environment:
+      - POSTGRES_HOST=db
+      - POSTGRES_DB=mamayu
+      - POSTGRES_USER=mamayu
+      - POSTGRES_PASSWORD=mamayu    
+    ports:
+      - 5432:5432  
+    volumes:
+      - postgres_data:/var/lib/postgresql/data/
+  mamayu_back:
+    build:
+      context: .
+      dockerfile: ./docker/production/mamayu_back/mamayu_back.Dockerfile.prod
+    container_name: mamayu_back        
+    ports:
+      - 8000:8000    
+    depends_on:
+      - db  
+volumes:
+  postgres_data:        
