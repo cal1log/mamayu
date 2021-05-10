@@ -4,4 +4,5 @@ set -e
 
 ./bin/docker-migrate
 ./bin/docker-static
-./bin/docker-server
+#./bin/docker-server
+./bin/docker-gunicorn
