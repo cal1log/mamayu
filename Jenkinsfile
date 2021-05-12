@@ -5,7 +5,7 @@ pipeline {
     stages {
       stage(‘Build’) {
         steps {
-          sh 'sudo docker kill $(docker ps -q)'
+          sh 'sudo docker container prune -f'
           sh 'sudo /usr/bin/docker-compose up --build'
         }
       }
