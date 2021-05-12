@@ -10,4 +10,4 @@
 
 [Confluence](https://mamayu.atlassian.net/jira/software/projects/MAMAYU/pages)
 
-#### Product of Cali, Valle del Cauca, Colombia.
+#### Software Product of Cali, Valle del Cauca, Colombia.
