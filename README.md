@@ -10,4 +10,6 @@
 
 [Confluence](https://mamayu.atlassian.net/jira/software/projects/MAMAYU/pages)
 
+#### This app has a Github Jira connection
+
 #### Software Product of Cali, Valle del Cauca, Colombia.
