@@ -12,4 +12,4 @@
 
 ##### This app has a Github Jira connection verified in the tasks comments.
 
-#### Software Product of Cali, Valle del Cauca, Colombia.
+#### Software Product of Cali, Valle del Cauca, Colombia. 
